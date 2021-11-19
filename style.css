@@ -76,6 +76,7 @@ input, button{
     color: var(--veryDarkCyan);
     font-weight: 700;
     padding-left: 42px;
+    padding-right: 25px;
 }
 
 .bill-input::placeholder{
@@ -88,15 +89,16 @@ input, button{
     outline: 2px solid var(--strongCyan);
 }
 
-.bill-input-container:before{
-    content: '';
-    position: absolute;
-    width: 15px;
-    height: 6vh;
-    bottom: 0;
-    right: 0;
-    border-radius: 0 5px 5px 0;
-    background-color: var(--lightGrayishCyan1);
+/* Chrome, Safari, Edge, Opera HIDING ARROW FROM NUMBER FIELD*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .bill-input-container:after{
@@ -122,7 +124,6 @@ input, button{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 16px;
-    position: relative;
 }
 
 .input-grid button{
@@ -135,7 +136,7 @@ input, button{
     background-color: var(--veryDarkCyan);
     color: var(--White);
     cursor: pointer;
-    transition: background-color 200ms ease-in, border-radius 200ms ease-in, transform 200ms ease-in;
+    transition: background-color 200ms ease-in, border-radius 200ms ease-in;
 }
 .input-grid button:hover{
     background-color: hsl(172, 67%, 55%);
@@ -159,22 +160,11 @@ input, button{
     color: var(--veryDarkCyan);
     font-weight: 700;
     font-size: calc(var(--fontSize)*0.75);
-    padding-left: 10px;
+    padding: 0 10px;
 }
 .custom-tip-input:focus{
     outline: none;
     outline: 2px solid var(--strongCyan);
-}
-.input-grid:before{
-    content: '';
-    position: absolute;
-    width: 15px;
-    height: 42.4px;
-    padding: 6px 0;
-    bottom: 0;
-    right: 0;
-    border-radius: 0 5px 5px 0;
-    background-color: var(--lightGrayishCyan1);
 }
 
 .people-input{
@@ -188,6 +178,7 @@ input, button{
     color: var(--veryDarkCyan);
     font-weight: 700;
     padding-left: 42px;
+    padding-right: 25px;
 }
 
 .people-input::placeholder{
@@ -202,18 +193,6 @@ input, button{
 
 .people-input-container{
     position: relative;
-}
-
-.people-input-container:before{
-    content: '';
-    position: absolute;
-    width: 15px;
-    height: 6vh;
-    padding: 6px 0;
-    bottom: 0;
-    right: 0;
-    border-radius: 0 5px 5px 0;
-    background-color: var(--lightGrayishCyan1);
 }
 
 .people-input-container:after{
@@ -309,9 +288,9 @@ input, button{
     background-color: var(--darkGrayishCyan);
     color: var(--veryDarkCyan);
     cursor: pointer;
-    transition: background-color 200ms ease-in, border-radius 200ms ease-in, transform 200ms ease-in;
     margin: 10px 0;
     pointer-events: none;
+    transition: background-color 200ms ease-in, border-radius 200ms ease-in;
 }
 .reset-active{
     background-color: var(--strongCyan);
@@ -354,11 +333,15 @@ input, button{
     }
 
     .reset{
+        width: 80%;
         position: absolute;
-        width: 85%;
         bottom: 30px;
-        right: 50%;
-        transform: translateX(50%);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .reset:active{
+        transform: translateX(-50%) scale(0.96);
     }
 
     .total-amount-container{

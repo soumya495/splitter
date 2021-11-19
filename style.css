@@ -285,15 +285,15 @@ input[type=number] {
     text-transform: uppercase;
     font-size: calc(var(--fontSize)*0.75);
     font-weight: 700;
-    background-color: var(--darkGrayishCyan);
-    color: var(--veryDarkCyan);
+    background-color: var(--darkGrayishCyan) !important;
+    color: var(--veryDarkCyan) !important;
     cursor: pointer;
     margin: 10px 0;
     pointer-events: none;
     transition: background-color 200ms ease-in, border-radius 200ms ease-in;
 }
 .reset-active{
-    background-color: var(--strongCyan);
+    background-color: var(--strongCyan) !important;
     pointer-events: all;
 }
 
